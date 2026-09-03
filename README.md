@@ -45,3 +45,5 @@ index.html            the whole site
 
 .nojekyll             tells Pages to serve files as-is
 ```
+
+<!-- pages rebuild -->
