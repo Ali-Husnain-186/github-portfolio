@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Ali Husnain — full-stack software engineer with 2+ years building scalable web apps in React, Next.js, Node.js and TypeScript.">
+<meta name="theme-color" content="#0B0D12">
+<meta property="og:title" content="Ali Husnain — Full-Stack Engineer">
+<meta property="og:description" content="Full-stack software engineer. React · Next.js · Node.js · TypeScript. 2+ years shipping production web apps.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMwQjBEMTIiLz48dGV4dCB4PSIzMiIgeT0iNDMiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EsQXJpYWwsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIzMCIgZm9udC13ZWlnaHQ9IjcwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI0U5OEE0QiI+QUg8L3RleHQ+PC9zdmc+Cg==">
+<!--HEAD_START-->
+<title>Ali Husnain — Full-Stack Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ink:#0B0D12;
+  --ink-2:#10141C;
+  --surface:#141924;
+  --line:#222A38;
+  --line-soft:#1A212C;
+  --text:#E7EAF1;
+  --text-2:#A6AEC0;
+  --text-3:#727C90;
+  --accent:#E98A4B;
+  --accent-soft:rgba(233,138,75,.14);
+  --accent-line:rgba(233,138,75,.38);
+  --good:#5FBF9B;
+  --display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --body:"Public Sans","Helvetica Neue",Arial,sans-serif;
+  --mono:"JetBrains Mono","SFMono-Regular",Consolas,monospace;
+  --shell:min(1120px,100% - 3rem);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--ink);color:var(--text);
+  font-family:var(--body);font-size:16.5px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(120% 60% at 50% -10%,rgba(233,138,75,.10),transparent 60%);
+  background-repeat:no-repeat;
+}
+img{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+.shell{width:var(--shell);margin-inline:auto}
+.eyebrow{
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--text-3);margin:0;
+}
+h1,h2,h3{font-family:var(--display);font-weight:800;text-wrap:balance;margin:0;letter-spacing:-.02em;line-height:1.06}
+p{margin:0}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:20;backdrop-filter:blur(14px);
+  background:rgba(11,13,18,.78);border-bottom:1px solid var(--line-soft)}
+.nav-in{width:var(--shell);margin-inline:auto;display:flex;align-items:center;gap:1.5rem;
+  height:62px}
+.brand{display:flex;align-items:center;gap:.6rem;font-family:var(--display);font-weight:800;
+  letter-spacing:-.01em;text-decoration:none;font-size:.98rem}
+.mark{width:26px;height:26px;display:grid;place-items:center;border:1px solid var(--accent-line);
+  color:var(--accent);border-radius:6px;font-family:var(--mono);font-size:.66rem;letter-spacing:.02em}
+.nav-links{display:flex;gap:1.4rem;margin-left:auto;align-items:center}
+.nav-links a{font-family:var(--mono);font-size:.78rem;color:var(--text-2);text-decoration:none;
+  letter-spacing:.02em;transition:color .18s}
+.nav-links a:hover{color:var(--text)}
+.nav-links a.btn-solid:hover{color:#160D05}
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;text-decoration:none;
+  font-family:var(--mono);font-size:.78rem;letter-spacing:.02em;
+  padding:.55rem .95rem;border-radius:7px;border:1px solid var(--line);
+  color:var(--text);transition:border-color .18s,background .18s,transform .18s;
+}
+.btn:hover{border-color:var(--accent-line);background:var(--accent-soft)}
+.btn-solid,.nav-links a.btn-solid{background:var(--accent);border-color:var(--accent);color:#160D05;font-weight:500}
+.btn-solid:hover{background:#f0a06b;border-color:#f0a06b}
+@media(max-width:760px){.nav-links a:not(.btn){display:none}}
+
+/* ---------- hero ---------- */
+.hero{padding:5.5rem 0 3.5rem}
+.hero-grid{display:grid;grid-template-columns:1.35fr .85fr;gap:3.5rem;align-items:start}
+.hero h1{font-size:clamp(2.9rem,7vw,4.9rem);margin:.9rem 0 0}
+.hero h1 .accent{color:var(--accent)}
+.role{font-family:var(--display);font-weight:600;font-size:clamp(1.05rem,2.3vw,1.35rem);
+  color:var(--text-2);margin-top:.85rem;letter-spacing:-.01em}
+.lead{color:var(--text-2);margin-top:1.15rem;max-width:56ch}
+.chips{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1.6rem}
+.chip{font-family:var(--mono);font-size:.72rem;color:var(--text-2);
+  border:1px solid var(--line);border-radius:999px;padding:.3rem .7rem}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.9rem}
+.idcard{border:1px solid var(--line);border-radius:14px;background:
+  linear-gradient(180deg,var(--surface),var(--ink-2));overflow:hidden}
+.idcard-top{padding:1.6rem;border-bottom:1px solid var(--line-soft);
+  background-image:linear-gradient(var(--line-soft) 1px,transparent 1px),
+    linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);
+  background-size:28px 28px;background-position:center}
+.monogram{font-family:var(--display);font-weight:800;font-size:3.4rem;letter-spacing:-.04em;
+  color:var(--text);line-height:1;display:flex;align-items:baseline;gap:.35rem}
+.monogram span{color:var(--accent)}
+.idcard dl{margin:0;padding:1.1rem 1.6rem 1.5rem;display:grid;gap:.75rem}
+.idrow{display:flex;justify-content:space-between;gap:1rem;align-items:baseline}
+.idrow dt{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3)}
+.idrow dd{margin:0;font-size:.88rem;color:var(--text);text-align:right}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--good);
+  margin-right:.45rem;vertical-align:middle}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr;gap:2.5rem}.hero{padding-top:3.5rem}}
+
+/* ---------- stats ---------- */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-soft);
+  border-block:1px solid var(--line-soft);margin-top:1.5rem}
+.stat{background:var(--ink);padding:1.5rem 1.3rem}
+.stat b{display:block;font-family:var(--display);font-weight:800;font-size:2rem;
+  letter-spacing:-.03em;font-variant-numeric:tabular-nums;line-height:1}
+.stat span{display:block;font-family:var(--mono);font-size:.7rem;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--text-3);margin-top:.55rem}
+@media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+/* ---------- section frame ---------- */
+section{padding:5rem 0}
+.sec-head{display:flex;align-items:end;justify-content:space-between;gap:2rem;
+  padding-bottom:1.4rem;border-bottom:1px solid var(--line);margin-bottom:2.5rem}
+.sec-head h2{font-size:clamp(1.7rem,3.6vw,2.4rem)}
+.sec-head p.note{color:var(--text-3);font-size:.86rem;max-width:34ch;text-align:right}
+@media(max-width:700px){.sec-head{flex-direction:column;align-items:start;gap:.8rem}
+  .sec-head p.note{text-align:left}}
+
+/* ---------- experience ---------- */
+.timeline{display:grid;gap:0;border-left:1px solid var(--line);margin-left:.4rem}
+.job{display:grid;grid-template-columns:9.5rem 1fr;gap:1.8rem;padding:1.6rem 0 1.6rem 1.8rem;
+  position:relative;border-bottom:1px solid var(--line-soft)}
+.job:last-child{border-bottom:0}
+.job::before{content:"";position:absolute;left:-4.5px;top:2.15rem;width:8px;height:8px;
+  border-radius:50%;background:var(--ink);border:1px solid var(--accent-line)}
+.job time{font-family:var(--mono);font-size:.74rem;letter-spacing:.04em;color:var(--text-3);
+  font-variant-numeric:tabular-nums}
+.job h3{font-size:1.12rem;font-weight:600}
+.job .where{color:var(--accent);font-family:var(--mono);font-size:.78rem;margin-top:.3rem}
+.job p{color:var(--text-2);font-size:.93rem;margin-top:.6rem;max-width:62ch}
+.tag-edit{display:inline-block;font-family:var(--mono);font-size:.63rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--accent);border:1px dashed var(--accent-line);
+  border-radius:5px;padding:.1rem .4rem;margin-left:.5rem;vertical-align:middle}
+@media(max-width:700px){.job{grid-template-columns:1fr;gap:.5rem;padding-left:1.4rem}}
+
+/* ---------- projects ---------- */
+.feature{border:1px solid var(--line);border-radius:14px;background:linear-gradient(180deg,var(--surface),var(--ink-2));
+  padding:2rem;display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center;margin-bottom:2rem}
+.feature h3{font-size:1.65rem}
+.feature p{color:var(--text-2);margin-top:.8rem;max-width:50ch}
+.stack-list{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.2rem}
+.stack-list .chip{border-color:var(--accent-line);color:var(--accent)}
+.window{border:1px solid var(--line);border-radius:10px;background:var(--ink);overflow:hidden}
+.window-bar{display:flex;gap:.35rem;padding:.55rem .7rem;border-bottom:1px solid var(--line-soft);align-items:center}
+.window-bar i{width:8px;height:8px;border-radius:50%;background:var(--line);display:block}
+.window-bar em{margin-left:.5rem;font-family:var(--mono);font-size:.68rem;color:var(--text-3);font-style:normal}
+.window pre{margin:0;padding:.95rem 1rem;font-family:var(--mono);font-size:.72rem;line-height:1.75;
+  color:var(--text-2);overflow-x:auto}
+.window pre b{color:var(--accent);font-weight:400}
+.window pre i{color:var(--good);font-style:normal}
+.grid-projects{display:grid;grid-template-columns:1fr 1fr;gap:0 2.5rem}
+.proj{display:block;text-decoration:none;padding:1.5rem 0;border-top:1px solid var(--line);
+  transition:padding-left .2s,border-color .2s}
+.proj:hover{border-color:var(--accent-line);padding-left:.6rem}
+.proj-top{display:flex;align-items:baseline;justify-content:space-between;gap:1rem}
+.proj h3{font-size:1.1rem;font-weight:600}
+.proj .arrow{font-family:var(--mono);color:var(--text-3);font-size:.9rem;transition:color .2s}
+.proj:hover .arrow{color:var(--accent)}
+.proj p{color:var(--text-2);font-size:.9rem;margin-top:.5rem}
+.proj .meta{font-family:var(--mono);font-size:.7rem;color:var(--text-3);margin-top:.8rem;
+  letter-spacing:.06em;text-transform:uppercase}
+@media(max-width:820px){.feature{grid-template-columns:1fr}.grid-projects{grid-template-columns:1fr;gap:0}}
+
+/* ---------- stack ---------- */
+.stack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-soft);
+  border:1px solid var(--line-soft);border-radius:12px;overflow:hidden}
+.stack-cell{background:var(--ink);padding:1.4rem}
+.stack-cell h3{font-family:var(--mono);font-weight:500;font-size:.72rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--accent)}
+.stack-cell ul{margin:.85rem 0 0;padding:0;list-style:none;display:grid;gap:.35rem}
+.stack-cell li{font-size:.9rem;color:var(--text-2)}
+@media(max-width:760px){.stack-grid{grid-template-columns:1fr}}
+
+/* ---------- contact ---------- */
+.contact{border-top:1px solid var(--line);padding:5rem 0 3rem}
+.contact h2{font-size:clamp(2rem,5vw,3.2rem);max-width:16ch}
+.contact p{color:var(--text-2);margin-top:1.1rem;max-width:52ch}
+.contact-cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:2rem}
+footer{border-top:1px solid var(--line-soft);margin-top:4rem;padding:1.6rem 0 2.5rem;
+  display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  font-family:var(--mono);font-size:.72rem;color:var(--text-3)}
+footer a{text-decoration:none}
+footer a:hover{color:var(--accent)}
+.edu{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);border-radius:12px;overflow:hidden;margin-top:1.5rem}
+.edu>div{background:var(--ink);padding:1.4rem}
+.edu h3{font-size:1.02rem;font-weight:600;margin-top:.4rem}
+.edu p{color:var(--text-2);font-size:.88rem;margin-top:.3rem}
+.edu time{font-family:var(--mono);font-size:.71rem;color:var(--text-3);letter-spacing:.08em}
+@media(max-width:760px){.edu{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+</style>
+<!--HEAD_END-->
+</head>
+<body>
+<!--BODY_START-->
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="#top"><span class="mark">AH</span>Ali Husnain</a>
+    <nav class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#stack">Stack</a>
+      <a class="btn btn-solid" href="mailto:Husnain.code@gmail.com">Let&rsquo;s talk</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="shell">
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">Full-stack developer &middot; Gujrat, Pakistan</p>
+          <h1>Ali <span class="accent">Husnain</span></h1>
+          <p class="role">React &middot; Next.js &middot; Node.js &middot; TypeScript</p>
+          <p class="lead">Full-stack software engineer with 2+ years building scalable web applications.
+            I work across SSR and SEO-optimised front ends, RESTful Node APIs, and MySQL or MongoDB
+            behind them &mdash; production-ready code, shipped on time, in Agile teams.</p>
+          <div class="chips">
+            <span class="chip">React.js</span>
+            <span class="chip">Next.js</span>
+            <span class="chip">TypeScript</span>
+            <span class="chip">Node.js</span>
+            <span class="chip">Tailwind CSS</span>
+            <span class="chip">MySQL</span>
+            <span class="chip">MongoDB</span>
+            <span class="chip">REST APIs</span>
+          </div>
+          <div class="hero-cta">
+            <a class="btn btn-solid" href="mailto:Husnain.code@gmail.com">Email me</a>
+            <a class="btn" href="Ali-Husnain-CV.pdf" download>Download CV</a>
+            <a class="btn" href="https://github.com/Ali-Husnain-186" target="_blank" rel="noopener">GitHub &#8599;</a>
+            <a class="btn" href="https://www.linkedin.com/in/ali-husnain-968569261/" target="_blank" rel="noopener">LinkedIn &#8599;</a>
+          </div>
+        </div>
+        <aside class="idcard">
+          <div class="idcard-top">
+            <div class="monogram">A<span>H</span></div>
+          </div>
+          <dl>
+            <div class="idrow"><dt>Status</dt><dd><span class="dot"></span>Open to work</dd></div>
+            <div class="idrow"><dt>Based in</dt><dd>Gujrat, PK &middot; UTC+5</dd></div>
+            <div class="idrow"><dt>Focus</dt><dd>SSR web apps &amp; SaaS</dd></div>
+            <div class="idrow"><dt>Phone</dt><dd>+92 316 7852374</dd></div>
+          </dl>
+        </aside>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>2+</b><span>Years of experience</span></div>
+        <div class="stat"><b>5</b><span>Roles across 4 teams</span></div>
+        <div class="stat"><b>6</b><span>Public projects</span></div>
+        <div class="stat"><b>2</b><span>Stacks: MERN &amp; Next/MySQL</span></div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">Where I&rsquo;ve worked</p>
+          <h2>Experience</h2>
+        </div>
+        <p class="note">Remote and hybrid teams across Canada, the US and Pakistan.</p>
+      </div>
+      <div class="timeline">
+        <article class="job">
+          <time>Apr 2026 &mdash; Present</time>
+          <div>
+            <h3>Software Engineer</h3>
+            <div class="where">CanDev Software Agency</div>
+            <p>Building and shipping client web applications end to end across the React, Next.js
+              and Node stack.</p>
+          </div>
+        </article>
+        <article class="job">
+          <time>Oct 2025 &mdash; Mar 2026</time>
+          <div>
+            <h3>Full Stack Developer</h3>
+            <div class="where">MindsTek AI Corporation &middot; West Vancouver, BC &mdash; Remote</div>
+            <p>Developed scalable web apps in React.js and Next.js with SSR for performance, built and
+              optimised Node.js APIs on MySQL, and implemented role-based access control and state
+              management. Led development of a key module and delivered it on schedule.</p>
+          </div>
+        </article>
+        <article class="job">
+          <time>Aug 2025 &mdash; Oct 2025</time>
+          <div>
+            <h3>Full Stack Developer Intern</h3>
+            <div class="where">Artus AI &middot; Palo Alto, CA &mdash; Remote</div>
+            <p>Built a scalable front end in Next.js and TypeScript straight from Figma, with reusable
+              UI components and Zustand state. Implemented Node.js and MongoDB APIs and optimised
+              database queries for server-side performance.</p>
+          </div>
+        </article>
+        <article class="job">
+          <time>Jan 2025 &mdash; Jul 2025</time>
+          <div>
+            <h3>Front End Developer</h3>
+            <div class="where">Nexthon &middot; Gujrat, Punjab &mdash; Hybrid</div>
+            <p>Developed responsive interfaces in React.js, Next.js and TypeScript from Figma designs,
+              with a focus on performance, accessibility and scalable UI architecture. Shipped
+              pixel-perfect, SEO-optimised pages that held up across devices.</p>
+          </div>
+        </article>
+        <article class="job">
+          <time>Jun 2024 &mdash; Dec 2024</time>
+          <div>
+            <h3>React / Next.js Intern</h3>
+            <div class="where">Nexthon &middot; Gujrat, Punjab &mdash; On-site</div>
+            <p>Built reusable UI components with React and TypeScript, converted Figma designs to
+              responsive interfaces with Tailwind CSS, supported Next.js SSR and fixed UI bugs in an
+              Agile team using Git.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">Selected work</p>
+          <h2>Things I designed, built and shipped</h2>
+        </div>
+        <p class="note">Every project below is public on GitHub &mdash; click through for the code.</p>
+      </div>
+
+      <article class="feature">
+        <div>
+          <p class="eyebrow">Flagship &middot; MIT licensed</p>
+          <h3>GameMania</h3>
+          <p>A production-ready gaming marketplace: catalogue, listings, checkout flow and an
+            admin side, built on a typed Next.js front end with an Express and PostgreSQL back end.</p>
+          <div class="stack-list">
+            <span class="chip">Next.js</span><span class="chip">TypeScript</span>
+            <span class="chip">Express</span><span class="chip">PostgreSQL</span>
+          </div>
+          <div class="hero-cta">
+            <a class="btn" href="https://github.com/Ali-Husnain-186/gamemania" target="_blank" rel="noopener">View repository &#8599;</a>
+          </div>
+        </div>
+        <div class="window">
+          <div class="window-bar"><i></i><i></i><i></i><em>gamemania / api</em></div>
+<pre><b>GET</b>  /api/listings?genre=rpg&amp;sort=new   <i>200</i>
+<b>POST</b> /api/cart/items                     <i>201</i>
+<b>POST</b> /api/checkout/session               <i>201</i>
+<b>GET</b>  /api/admin/orders                   <i>200</i>
+
+stack   next.js &middot; express &middot; postgres
+types   end-to-end typescript
+</pre>
+        </div>
+      </article>
+
+      <div class="grid-projects">
+        <a class="proj" href="https://github.com/Ali-Husnain-186/portfolio-builder" target="_blank" rel="noopener">
+          <div class="proj-top"><h3>Portfolio Builder</h3><span class="arrow">&#8599;</span></div>
+          <p>A free portfolio builder &mdash; users create an account, fill in their details and get a
+            shareable link on the domain, editable or deletable any time.</p>
+          <div class="meta">TypeScript &middot; Auth &middot; Hosted links</div>
+        </a>
+        <a class="proj" href="https://github.com/Ali-Husnain-186/ImageToElements" target="_blank" rel="noopener">
+          <div class="proj-top"><h3>ImageToElements</h3><span class="arrow">&#8599;</span></div>
+          <p>Turns a static image into independently editable elements you can drag and resize in the
+            browser, then exports the layout as JSON with optional animation.</p>
+          <div class="meta">TypeScript &middot; React &middot; Remotion</div>
+        </a>
+        <a class="proj" href="https://github.com/Ali-Husnain-186/verify_refree" target="_blank" rel="noopener">
+          <div class="proj-top"><h3>Verify Referee</h3><span class="arrow">&#8599;</span></div>
+          <p>A role-based reference letter system: students request letters, teachers verify or reject
+            with comments, admins approve users, and verified results are shared via public links.</p>
+          <div class="meta">MERN &middot; Role-based access</div>
+        </a>
+        <a class="proj" href="https://github.com/Ali-Husnain-186/Editro" target="_blank" rel="noopener">
+          <div class="proj-top"><h3>Editro</h3><span class="arrow">&#8599;</span></div>
+          <p>A Canva-style content creation platform &mdash; a canvas of text, shapes and image tools
+            for putting together visual content in the browser.</p>
+          <div class="meta">JavaScript &middot; Canvas editing</div>
+        </a>
+        <a class="proj" href="https://github.com/Ali-Husnain-186/IMDB_Clone" target="_blank" rel="noopener">
+          <div class="proj-top"><h3>IMDb Clone</h3><span class="arrow">&#8599;</span></div>
+          <p>A React application that fetches and renders movie data from the IMDb API &mdash; search,
+            detail views and dynamic routing.</p>
+          <div class="meta">JavaScript &middot; React &middot; REST API</div>
+        </a>
+        <a class="proj" href="https://github.com/Ali-Husnain-186?tab=repositories" target="_blank" rel="noopener">
+          <div class="proj-top"><h3>More on GitHub</h3><span class="arrow">&#8599;</span></div>
+          <p>Everything else I&rsquo;m building &mdash; experiments, smaller tools and work in progress.</p>
+          <div class="meta">@Ali-Husnain-186</div>
+        </a>
+      </div>
+    </section>
+
+    <section id="stack">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">Toolkit</p>
+          <h2>What I build with</h2>
+        </div>
+        <p class="note">Typed end to end, SEO-aware, shipped in Agile cycles.</p>
+      </div>
+      <div class="stack-grid">
+        <div class="stack-cell">
+          <h3>Front end</h3>
+          <ul><li>React.js &amp; Next.js</li><li>TypeScript &amp; JavaScript</li><li>Tailwind CSS &amp; responsive design</li><li>Redux, Zustand, Context API</li></ul>
+        </div>
+        <div class="stack-cell">
+          <h3>Back end</h3>
+          <ul><li>Node.js</li><li>RESTful API design</li><li>MySQL</li><li>MongoDB</li></ul>
+        </div>
+        <div class="stack-cell">
+          <h3>Ways of working</h3>
+          <ul><li>SSR &amp; SEO optimisation</li><li>Performance optimisation</li><li>Git &amp; GitHub flow</li><li>Agile delivery</li></ul>
+        </div>
+      </div>
+      <div class="edu">
+        <div>
+          <time>2020 &mdash; 2024</time>
+          <h3>BS Computer Science</h3>
+          <p>University of Gujrat</p>
+        </div>
+        <div>
+          <time>2018 &mdash; 2020</time>
+          <h3>Intermediate, Computer Science</h3>
+          <p>Government College, Gujrat</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="contact shell" id="contact">
+    <p class="eyebrow">Contact</p>
+    <h2>Have something to build? Let&rsquo;s get into it.</h2>
+    <p>I&rsquo;m open to full-stack roles and freelance product work &mdash; React, Next.js, Node
+      and anything SaaS-shaped. Fastest way to reach me is email.</p>
+    <div class="contact-cta">
+      <a class="btn btn-solid" href="mailto:Husnain.code@gmail.com">Husnain.code@gmail.com</a>
+      <a class="btn" href="tel:+923167852374">+92 316 7852374</a>
+      <a class="btn" href="https://www.linkedin.com/in/ali-husnain-968569261/" target="_blank" rel="noopener">LinkedIn &#8599;</a>
+      <a class="btn" href="https://github.com/Ali-Husnain-186" target="_blank" rel="noopener">GitHub &#8599;</a>
+    </div>
+    <footer>
+      <span>&copy; <span id="yr">2026</span> Ali Husnain</span>
+      <span>Built by hand &middot; hosted on GitHub Pages</span>
+    </footer>
+  </div>
+</main>
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  var links = document.querySelectorAll('.nav-links a[href^="#"]:not(.btn)');
+  var sections = [].map.call(links, function(a){ return document.querySelector(a.getAttribute('href')); });
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        var i = sections.indexOf(e.target);
+        if (i > -1 && e.isIntersecting) {
+          links.forEach(function(l){ l.style.color = ''; });
+          links[i].style.color = 'var(--accent)';
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    sections.forEach(function(s){ if (s) io.observe(s); });
+  }
+</script>
+<!--BODY_END-->
+</body>
+</html>
