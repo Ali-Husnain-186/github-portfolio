@@ -109,10 +109,6 @@ section{position:relative}
 .stack .it svg{width:30px;height:30px}
 .stack .it span{font-size:12.5px;font-weight:600;color:var(--ink-2)}
 .hero-actions{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:34px;padding-top:28px;border-top:1px solid var(--line);max-width:560px}
-.cv{display:inline-flex;align-items:center;gap:12px;font-weight:700;font-size:15.5px}
-.cv .ring{width:42px;height:42px;border-radius:50%;border:1.5px dashed var(--accent-line);display:grid;place-items:center;color:var(--accent-deep);transition:transform .25s,background .25s}
-.cv:hover .ring{background:var(--accent-soft);transform:translateY(2px)}
-.sep{width:1px;height:34px;background:var(--line)}
 .socials{display:flex;gap:10px}
 .socials a{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;border:1px solid var(--line);background:#fff;box-shadow:var(--shadow-sm);transition:transform .2s,border-color .2s,background .2s}
 .socials a:hover{transform:translateY(-2px);border-color:var(--accent-line)}
@@ -223,6 +219,29 @@ footer .brand{font-size:16px}
 .rv.in{opacity:1;transform:none}
 
 
+
+/* ---------- client work ---------- */
+.cw-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:40px}
+.cw-card{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow-sm);transition:transform .28s,box-shadow .28s,border-color .28s}
+.cw-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:var(--accent-line)}
+.cw-bar{display:flex;align-items:center;gap:8px;padding:10px 14px;background:#F6F6F8;border-bottom:1px solid var(--line)}
+.cw-bar i{width:8px;height:8px;border-radius:50%;background:#D7D8DE;display:block}
+.cw-bar i:first-child{background:var(--accent)}
+.cw-url{margin-left:8px;font-family:var(--mono);font-size:11.5px;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:999px;padding:3px 12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cw-shot{position:relative;overflow:hidden;background:#F2F2F5}
+.cw-shot img{width:100%;height:auto;display:block;transition:transform .5s cubic-bezier(.2,.7,.3,1)}
+.cw-card:hover .cw-shot img{transform:scale(1.04)}
+.cw-body{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1}
+.cw-title{font-size:20px;font-weight:700;letter-spacing:-.02em}
+.cw-role{margin-top:6px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:13.5px;font-weight:700;color:var(--accent-deep)}
+.cw-role span{color:var(--muted);font-weight:600}
+.cw-desc{color:var(--muted);font-size:14.8px;margin-top:12px}
+.cw-foot{margin-top:auto;padding-top:18px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px}
+.cw-foot .cw-tags{display:flex;gap:7px;flex-wrap:wrap}
+.cw-foot .tag{font-size:11.5px}
+.cw-foot a{font-weight:700;font-size:14px;color:var(--accent-deep);display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+.cw-foot a:hover{gap:11px}
+
 /* ---------- skills & education ---------- */
 .sk-grid{display:grid;grid-template-columns:1.35fr .85fr;gap:34px;margin-top:44px;align-items:start}
 .sk-h{font-size:13px;font-family:var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:500;margin-bottom:14px}
@@ -246,6 +265,7 @@ footer .brand{font-size:16px}
   .float-card{right:0}
   .grid{grid-template-columns:1fr}
   .featured{grid-template-columns:1fr}
+  .cw-grid{grid-template-columns:1fr}
   .feat-body{padding:26px 24px 28px}
   .sk-grid{grid-template-columns:1fr;gap:26px}
   .stats .wrap{grid-template-columns:repeat(2,1fr);gap:28px}
@@ -286,6 +306,7 @@ footer .brand{font-size:16px}
       <a href="#top" class="active">Home</a>
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
+      <a href="#client-work">Client work</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
       <a class="btn btn-primary cta-head" href="#contact">Let's Connect</a>
@@ -312,11 +333,6 @@ footer .brand{font-size:16px}
       </div>
 
       <div class="hero-actions rv">
-        <a class="cv" href="Ali-Husnain-CV.pdf" download>
-          <span class="ring"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11"/><path d="m7 11 5 5 5-5"/><path d="M5 20h14"/></svg></span>
-          Download CV
-        </a>
-        <span class="sep"></span>
         <div class="socials">
           <a href="https://www.linkedin.com/in/ali-husnain-968569261/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="#0A66C2"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.6c0-1.34-.03-3.07-1.9-3.07-1.9 0-2.2 1.46-2.2 2.97V21H9z"/></svg></a>
           <a href="https://github.com/Ali-Husnain-186" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="#181717"><path d="M12 1.8a10.2 10.2 0 0 0-3.23 19.88c.51.1.7-.22.7-.49v-1.9c-2.84.62-3.44-1.2-3.44-1.2-.47-1.18-1.14-1.5-1.14-1.5-.93-.63.07-.62.07-.62 1.03.07 1.57 1.06 1.57 1.06.91 1.57 2.4 1.12 2.98.85.09-.66.36-1.12.65-1.37-2.27-.26-4.66-1.14-4.66-5.05 0-1.12.4-2.03 1.05-2.75-.1-.26-.45-1.3.1-2.7 0 0 .86-.28 2.8 1.05a9.7 9.7 0 0 1 5.1 0c1.94-1.33 2.8-1.05 2.8-1.05.55 1.4.2 2.44.1 2.7.65.72 1.05 1.63 1.05 2.75 0 3.92-2.39 4.79-4.67 5.04.37.32.7.94.7 1.9v2.82c0 .27.18.6.7.49A10.2 10.2 0 0 0 12 1.8z"/></svg></a>
@@ -378,6 +394,16 @@ footer .brand{font-size:16px}
   </div>
 </section>
 
+
+
+<section class="pad client-work" id="client-work">
+  <div class="wrap">
+    <p class="eyebrow rv">Client work</p>
+    <h2 class="sec-title rv">Projects I built at companies.</h2>
+    <p class="sec-sub rv">Live products I worked on as part of the teams at Nexthon, Artus AI and CanDev Software Agency. All four are in production today.</p>
+    <div class="cw-grid" id="cwGrid"></div>
+  </div>
+</section>
 
 <section class="pad skills-sec" id="skills">
   <div class="wrap">
@@ -677,6 +703,51 @@ footer .brand{font-size:16px}
         '<a href="'+esc(p.url)+'" target="_blank" rel="noopener">View code '+ARROW+'</a></div>' +
       '</div>';
     grid.appendChild(card);
+  });
+
+  var CLIENT_WORK = [
+    {
+      name:"Warwick Academy", url:"https://www.warwick.bm/", host:"warwick.bm",
+      role:"Full Stack Developer", company:"CanDev Software Agency",
+      desc:"The public site for Bermuda's oldest school, covering admissions, school life, news and parent portal links.",
+      shot:"work-warwick.jpg", tags:["Next.js","Node.js","CMS"]
+    },
+    {
+      name:"QuoteIt", url:"https://www.quoteit.ca/", host:"quoteit.ca",
+      role:"Full Stack Developer", company:"CanDev Software Agency",
+      desc:"A Canadian home services marketplace. Clients post a job, service providers send quotes and the booking happens in the app. Mobile app is the main product, with the web platform alongside it.",
+      shot:"work-quoteit.jpg", tags:["React Native","Node.js","Marketplace"]
+    },
+    {
+      name:"Compton", url:"https://www.compton.in/", host:"compton.in",
+      role:"Full Stack Developer", company:"Artus AI",
+      desc:"Enterprise networking company in India: wired and wireless network design, data centre deployment and managed IT services.",
+      shot:"work-compton.jpg", tags:["Next.js","TypeScript","Node.js"]
+    },
+    {
+      name:"FunFox Program", url:"https://funfoxprogram.com.au/", host:"funfoxprogram.com.au",
+      role:"Frontend Developer", company:"Nexthon Technology",
+      desc:"Australia's online reading and writing program for young learners, with club pages, a content library and trial class booking.",
+      shot:"work-funfox.jpg", tags:["React","Responsive UI","SEO"]
+    }
+  ];
+
+  var cw = document.getElementById("cwGrid");
+  CLIENT_WORK.forEach(function(p){
+    var card = el("article","cw-card rv");
+    card.innerHTML =
+      '<div class="cw-bar"><i></i><i></i><i></i><span class="cw-url">'+esc(p.host)+'</span></div>' +
+      '<div class="cw-shot"><img src="'+esc(p.shot)+'" alt="'+esc(p.name)+' website" loading="lazy" decoding="async"></div>' +
+      '<div class="cw-body">' +
+        '<h3 class="cw-title">'+esc(p.name)+'</h3>' +
+        '<div class="cw-role">'+esc(p.role)+' <span>at '+esc(p.company)+'</span></div>' +
+        '<p class="cw-desc">'+esc(p.desc)+'</p>' +
+        '<div class="cw-foot">' +
+          '<div class="cw-tags">'+ p.tags.map(function(t){return '<span class="tag">'+esc(t)+'</span>';}).join('') +'</div>' +
+          '<a href="'+esc(p.url)+'" target="_blank" rel="noopener">Visit site '+ARROW+'</a>' +
+        '</div>' +
+      '</div>';
+    cw.appendChild(card);
   });
 
   var fx = document.getElementById("featured");

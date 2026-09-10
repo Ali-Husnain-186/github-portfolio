@@ -10,10 +10,11 @@ and no dependencies beyond Google Fonts.
 | Section | Notes |
 |---|---|
 | Header | Sticky, blurred, active-link underline, mobile burger menu |
-| Hero | Name, role, tech row, CV download, socials, your photo in a gradient ring (embedded, no external request) |
+| Hero | Name, role, tech row, socials, your photo in a gradient ring (embedded, no external request) |
 | Stats | 2+ years, 5 roles, 6 projects, 2 stacks |
 | Experience | Vertical timeline: CanDev (current), MindsTek, Artus AI, Nexthon x2 |
 | Projects | Featured GameMania card with the live link, then a filterable grid. Every card has its own inline-SVG product mockup |
+| Client work | 4 live company projects (Warwick Academy, QuoteIt, Compton, FunFox) with real screenshots |
 | Skills | Frontend, Backend and Engineering tag groups, plus Education and Languages |
 | Contact | Email and LinkedIn CTA, location, phone |
 
@@ -43,6 +44,8 @@ Everything that changes lives in two JavaScript arrays near the bottom of `index
   `live`, `code`, `art`.
 - `PROJECTS`: the grid. Each entry has `name`, `sub`, `cats[]` (drives the filter chips
   and their counts), `desc`, `tags[]`, `url`, `meta`, `art`.
+- `CLIENT_WORK`: the company projects section. Each entry has `name`, `url`, `host`,
+  `role`, `company`, `desc`, `shot` (image file in the repo root), `tags[]`.
 - `ART`: the inline-SVG mockups (`store`, `builder`, `canvas`, `verify`, `editor`,
   `movies`). Point a project's `art` at one of these keys, or add a new one.
 
@@ -55,10 +58,9 @@ Other quick edits:
 | Hero photo | `#avatar`, your photo embedded as a data URI so nothing loads from outside |
 | Skills / Education | `<section id="skills">` |
 | Email / phone / LinkedIn | search for `Husnain.code@gmail.com` |
-| CV | `Ali-Husnain-CV.pdf` in the repo root |
 
 ## Files
 
 - `index.html`: the whole site
-- `Ali-Husnain-CV.pdf`: CV linked from the hero
+- `work-*.jpg`: screenshots used by the Client work section
 - `.nojekyll`: tells Pages to serve files as-is
