@@ -176,8 +176,9 @@ section{position:relative}
 
 /* featured project */
 .featured{display:grid;grid-template-columns:1.02fr 1fr;gap:0;background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;margin-top:34px;box-shadow:var(--shadow)}
-.feat-art{position:relative;background:linear-gradient(150deg,#FBE7D6,#F3CBA9);display:grid;place-items:center;padding:26px}
-.feat-art .art{width:100%;height:auto;border-radius:10px;box-shadow:0 24px 50px -26px rgba(16,24,40,.55)}
+.feat-art{position:relative;background:linear-gradient(150deg,#FBE7D6,#F3CBA9);display:grid;place-items:center;padding:24px;overflow:hidden}
+.feat-art .art,.feat-art img{width:100%;height:auto;border-radius:10px;box-shadow:0 24px 50px -26px rgba(16,24,40,.55);display:block;transition:transform .5s cubic-bezier(.2,.7,.3,1)}
+.featured:hover .feat-art img{transform:scale(1.03)}
 .feat-flag{position:absolute;top:18px;left:18px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;background:#fff;color:var(--accent-dark);border-radius:999px;padding:5px 12px;display:inline-flex;align-items:center;gap:7px;box-shadow:var(--shadow-sm)}
 .feat-flag::before{content:"";width:7px;height:7px;border-radius:50%;background:#22A353;box-shadow:0 0 0 3px rgba(34,163,83,.18)}
 .feat-body{padding:30px 32px}
@@ -615,6 +616,7 @@ footer .brand{font-size:16px}
       "Admin panel for products, orders, trade-ins, reviews, shipping and CMS."
     ],
     tags:["Next.js","TypeScript","Express","PostgreSQL","Stripe","OAuth"],
+    shot:"work-gamemania.jpg",
     live:"https://gamemaniaauk.co.uk/",
     code:"https://github.com/Ali-Husnain-186/gamemania",
     art:"store"
@@ -752,7 +754,7 @@ footer .brand{font-size:16px}
 
   var fx = document.getElementById("featured");
   fx.innerHTML =
-    '<div class="feat-art">' + (ART[FEATURED.art]||'') + '<span class="feat-flag">Live now</span></div>' +
+    '<div class="feat-art"><img src="'+esc(FEATURED.shot)+'" alt="GameMania UK storefront" loading="lazy" decoding="async"><span class="feat-flag">Live now</span></div>' +
     '<div class="feat-body">' +
       '<h3 class="feat-title">'+esc(FEATURED.name)+'</h3>' +
       '<div class="card-sub">'+esc(FEATURED.sub)+'</div>' +
