@@ -401,7 +401,7 @@ footer .brand{font-size:16px}
   <div class="wrap">
     <p class="eyebrow rv">Client work</p>
     <h2 class="sec-title rv">Projects I built at companies.</h2>
-    <p class="sec-sub rv">Live products I worked on as part of the teams at Nexthon, Artus AI and CanDev Software Agency. All four are in production today.</p>
+    <p class="sec-sub rv">Live products I worked on with client teams at Nexthon, Artus AI and CanDev Software Agency, plus private client builds. All six are in production today.</p>
     <div class="cw-grid" id="cwGrid"></div>
   </div>
 </section>
@@ -709,6 +709,18 @@ footer .brand{font-size:16px}
 
   var CLIENT_WORK = [
     {
+      name:"Re&Source HUB", url:"https://www.resourcehubglobal.com/", host:"resourcehubglobal.com",
+      role:"Design and Development", company:"private client project",
+      desc:"A Hong Kong sourcing company connecting buyers with certified suppliers across five product categories. Animated landing experience with a guided sourcing brief flow.",
+      shot:"work-resourcehub.jpg", tags:["UI Design","Frontend","Motion"]
+    },
+    {
+      name:"HepsiDoysun", url:"https://www.hepsidoysun.com/", host:"hepsidoysun.com",
+      role:"Design and Development", company:"private client project",
+      desc:"A Turkish pet food brand whose earnings feed street cats and dogs. Product pages, pre-order flow and FAQ, built in Turkish.",
+      shot:"work-hepsidoysun.jpg", tags:["UI Design","Frontend","E-commerce"]
+    },
+    {
       name:"Warwick Academy", url:"https://www.warwick.bm/", host:"warwick.bm",
       role:"Full Stack Developer", company:"CanDev Software Agency",
       desc:"The public site for Bermuda's oldest school, covering admissions, school life, news and parent portal links.",
@@ -742,7 +754,7 @@ footer .brand{font-size:16px}
       '<div class="cw-shot"><img src="'+esc(p.shot)+'" alt="'+esc(p.name)+' website" loading="lazy" decoding="async"></div>' +
       '<div class="cw-body">' +
         '<h3 class="cw-title">'+esc(p.name)+'</h3>' +
-        '<div class="cw-role">'+esc(p.role)+' <span>at '+esc(p.company)+'</span></div>' +
+        '<div class="cw-role">'+esc(p.role)+' <span>'+(p.company.charAt(0)===p.company.charAt(0).toUpperCase()?'at ':'')+esc(p.company)+'</span></div>' +
         '<p class="cw-desc">'+esc(p.desc)+'</p>' +
         '<div class="cw-foot">' +
           '<div class="cw-tags">'+ p.tags.map(function(t){return '<span class="tag">'+esc(t)+'</span>';}).join('') +'</div>' +
