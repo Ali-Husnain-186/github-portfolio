@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ali Husnain | Full-Stack Developer</title>
-<meta name="description" content="Ali Husnain, full-stack software engineer building scalable web applications with React, Next.js, Node.js and TypeScript.">
+<meta name="description" content="Ali Husnain, Full-Stack Software Engineer with 3+ years building scalable web and mobile applications with React, Next.js, Node.js, TypeScript and React Native.">
 <meta name="author" content="Ali Husnain">
 <meta property="og:title" content="Ali Husnain | Full-Stack Developer">
 <meta property="og:description" content="Full-stack software engineer. React · Next.js · Node.js · TypeScript.">
@@ -108,6 +108,13 @@ section{position:relative}
 .stack .it{display:flex;flex-direction:column;align-items:center;gap:8px;width:66px;text-align:center}
 .stack .it svg{width:30px;height:30px}
 .stack .it span{font-size:12.5px;font-weight:600;color:var(--ink-2)}
+.key{margin-top:22px;max-width:600px}
+.key-title{font-size:13px;font-family:var(--mono);font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-dark);margin:0 0 12px}
+.key-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:9px 22px}
+.key-list li{position:relative;padding-left:18px;font-size:14.5px;line-height:1.5;color:var(--muted)}
+.key-list li::before{content:"";position:absolute;left:0;top:.6em;width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.key-list b{color:var(--ink-2);font-weight:700}
+@media (max-width:600px){.key-list{grid-template-columns:1fr}}
 .hero-actions{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:34px;padding-top:28px;border-top:1px solid var(--line);max-width:560px}
 .socials{display:flex;gap:10px}
 .socials a{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;border:1px solid var(--line);background:#fff;box-shadow:var(--shadow-sm);transition:transform .2s,border-color .2s,background .2s}
@@ -169,10 +176,17 @@ section{position:relative}
 .card{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow-sm);transition:transform .28s,box-shadow .28s,border-color .28s}
 .card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:var(--accent-line)}
 .card.hide{display:none}
-.thumb{position:relative;overflow:hidden;background:linear-gradient(140deg,#FDF0E5,#F7DCC6);border-bottom:1px solid var(--line)}
-.thumb .art{display:block;width:100%;height:auto;transition:transform .4s cubic-bezier(.2,.7,.3,1)}
-.card:hover .thumb .art{transform:scale(1.035)}
-.thumb .tagline{position:absolute;top:12px;left:16px;z-index:2;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-dark);background:rgba(255,255,255,.8);border-radius:6px;padding:3px 8px}
+.card{position:relative}
+.card::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,var(--accent-deep),var(--accent));transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.2,.7,.3,1)}
+.card:hover::before{transform:scaleX(1)}
+.card-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:24px 24px 0}
+.p-icon{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent-deep);border:1px solid var(--accent-line);transition:background .25s,color .25s,transform .25s}
+.p-icon svg{width:24px;height:24px}
+.card:hover .p-icon{background:var(--accent-deep);color:#fff;transform:rotate(-6deg)}
+.p-meta{display:flex;align-items:center;gap:10px}
+.p-cat{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-dark);background:var(--accent-soft);border-radius:6px;padding:4px 9px}
+.p-num{font-family:var(--mono);font-size:13px;font-weight:600;color:#C9CAD2;letter-spacing:.04em}
+.card .card-body{padding-top:18px}
 
 /* featured project */
 .featured{display:grid;grid-template-columns:1.02fr 1fr;gap:0;background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;margin-top:34px;box-shadow:var(--shadow)}
@@ -194,7 +208,7 @@ section{position:relative}
 .tag{font-size:12px;font-weight:600;color:var(--ink-2);background:#F6F6F8;border-radius:8px;padding:5px 10px}
 .card-foot{margin-top:auto;padding-top:18px;display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid var(--line)}
 .card-foot .cat{font-family:var(--mono);font-size:11.5px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
-.card-foot a{font-weight:700;font-size:14px;color:var(--accent-deep);display:inline-flex;align-items:center;gap:7px}
+.card-foot a{white-space:nowrap;font-weight:700;font-size:14px;color:var(--accent-deep);display:inline-flex;align-items:center;gap:7px}
 .card-foot a:hover{gap:11px}
 .more{margin-top:26px;display:flex;justify-content:center}
 
@@ -232,6 +246,12 @@ footer .brand{font-size:16px}
 .cw-shot{position:relative;overflow:hidden;background:#F2F2F5}
 .cw-shot img{width:100%;height:auto;display:block;transition:transform .5s cubic-bezier(.2,.7,.3,1)}
 .cw-card:hover .cw-shot img{transform:scale(1.04)}
+/* screenshot shine */
+.cw-shot img,.feat-art img{filter:brightness(1.04) saturate(1.06);transition:transform .5s cubic-bezier(.2,.7,.3,1),filter .4s}
+.cw-card:hover .cw-shot img,.featured:hover .feat-art img{filter:brightness(1.1) saturate(1.1)}
+.cw-shot::after,.feat-art::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:45%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-18deg);pointer-events:none;z-index:1}
+.cw-card:hover .cw-shot::after,.featured:hover .feat-art::after{left:130%;transition:left .9s ease}
+.feat-flag{z-index:2}
 .cw-body{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1}
 .cw-title{font-size:20px;font-weight:700;letter-spacing:-.02em}
 .cw-role{margin-top:6px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:13.5px;font-weight:700;color:var(--accent-deep)}
@@ -322,7 +342,20 @@ footer .brand{font-size:16px}
       <p class="eyebrow dot rv">Hello, I'm</p>
       <h1 class="rv">Ali <em>Husnain</em></h1>
       <p class="role rv">Full-Stack Developer &nbsp;·&nbsp; React &amp; Next.js Engineer</p>
-      <p class="lede rv">Full-stack software engineer with 2+ years building scalable web applications in React.js, Next.js, Node.js and TypeScript. I work across SEO-optimised SSR front ends, RESTful APIs, and MySQL or MongoDB behind them. Production-ready code, shipped on time, in Agile teams.</p>
+      <p class="lede rv">Full-Stack Software Engineer with 3+ years of experience building scalable web and mobile applications across the complete SDLC. Experienced in frontend, backend, databases, APIs, and deployment.</p>
+      <div class="key rv">
+        <h2 class="key-title">Key Skills &amp; Experience</h2>
+        <ul class="key-list">
+          <li><b>Frontend:</b> React.js, Next.js, TypeScript, Tailwind CSS</li>
+          <li><b>Figma to Code:</b> Pixel-perfect React.js &amp; Next.js development</li>
+          <li><b>Backend:</b> Node.js, Express.js, RESTful APIs</li>
+          <li><b>Databases:</b> MySQL, PostgreSQL, MongoDB</li>
+          <li><b>Mobile:</b> React Native</li>
+          <li><b>Development:</b> Full SDLC, testing, debugging &amp; deployment</li>
+          <li><b>APIs:</b> Third-party integrations &amp; payment gateways</li>
+          <li><b>Practices:</b> Git, Agile/Scrum, clean &amp; scalable code</li>
+        </ul>
+      </div>
 
       <div class="stack rv">
         <div class="it"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="2.1" fill="#61DAFB"/><g stroke="#61DAFB" stroke-width="1.1" fill="none"><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/></g></svg><span>React</span></div>
@@ -359,7 +392,7 @@ footer .brand{font-size:16px}
 
 <section class="stats">
   <div class="wrap">
-    <div class="stat rv"><b>2+</b><span>Years of experience</span></div>
+    <div class="stat rv"><b>3+</b><span>Years of experience</span></div>
     <div class="stat rv"><b>5</b><span>Roles across 4 teams</span></div>
     <div class="stat rv"><b>6</b><span>Public projects</span></div>
     <div class="stat rv"><b>2</b><span>Core stacks: MERN, Next/MySQL</span></div>
@@ -370,7 +403,7 @@ footer .brand{font-size:16px}
   <div class="wrap">
     <p class="eyebrow rv">Experience</p>
     <h2 class="sec-title rv">Where I've worked.</h2>
-    <p class="sec-sub rv">Two years across product teams and agencies in Pakistan, Canada and the US, working remote, hybrid and on-site.</p>
+    <p class="sec-sub rv">Three+ years across product teams and agencies in Pakistan, Canada and the US, working remote, hybrid and on-site.</p>
 
     <div class="timeline" id="timeline"></div>
   </div>
@@ -540,73 +573,6 @@ footer .brand{font-size:16px}
     }
   ];
 
-  /* ---------------- product artwork (inline SVG mockups) ---------------- */
-  function frame(inner, bg){
-    return '<svg class="art" viewBox="0 0 400 230" role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice">' +
-      '<rect x="18" y="18" width="364" height="212" rx="12" fill="'+(bg||"#ffffff")+'"/>' +
-      '<rect x="18" y="18" width="364" height="26" rx="12" fill="rgba(125,125,140,.10)"/>' +
-      '<circle cx="36" cy="31" r="4" fill="#E98A4B"/><circle cx="50" cy="31" r="4" fill="rgba(125,125,140,.35)"/><circle cx="64" cy="31" r="4" fill="rgba(125,125,140,.22)"/>' +
-      inner + '</svg>';
-  }
-  var ART = {
-    store: frame(
-      '<g fill="#1B2138">'+
-      [0,1,2,3].map(function(i){var x=36+i*86;return '<rect x="'+x+'" y="60" width="74" height="70" rx="8" fill="#232B47"/>'+
-        '<rect x="'+(x+10)+'" y="72" width="54" height="34" rx="5" fill="#38406A"/>'+
-        '<rect x="'+(x+10)+'" y="114" width="30" height="7" rx="3.5" fill="#E98A4B"/>';}).join('')+
-      [0,1,2,3].map(function(i){var x=36+i*86;return '<rect x="'+x+'" y="146" width="74" height="56" rx="8" fill="#232B47"/>'+
-        '<rect x="'+(x+10)+'" y="158" width="42" height="6" rx="3" fill="#4B5482"/>'+
-        '<rect x="'+(x+10)+'" y="172" width="28" height="6" rx="3" fill="#E98A4B"/>';}).join('')+
-      '</g>', "#141A2E"),
-    builder: frame(
-      '<rect x="36" y="60" width="150" height="10" rx="5" fill="#E1E2E8"/>'+
-      '<rect x="36" y="82" width="150" height="26" rx="7" fill="#F3F3F6" stroke="#E4E5EA"/>'+
-      '<rect x="36" y="118" width="150" height="26" rx="7" fill="#F3F3F6" stroke="#E4E5EA"/>'+
-      '<rect x="36" y="154" width="96" height="26" rx="7" fill="#E98A4B"/>'+
-      '<rect x="206" y="60" width="158" height="142" rx="10" fill="#FDF3EC" stroke="rgba(233,138,75,.35)"/>'+
-      '<circle cx="285" cy="94" r="18" fill="#F0C3A0"/>'+
-      '<rect x="245" y="124" width="80" height="8" rx="4" fill="#D9BBA6"/>'+
-      '<rect x="232" y="142" width="106" height="6" rx="3" fill="#EBD6C6"/>'+
-      '<rect x="246" y="156" width="78" height="6" rx="3" fill="#EBD6C6"/>'+
-      '<rect x="252" y="174" width="66" height="14" rx="7" fill="#E98A4B" opacity=".85"/>'),
-    canvas: frame(
-      '<rect x="36" y="60" width="328" height="142" rx="8" fill="#F7F7F9"/>'+
-      '<rect x="56" y="78" width="120" height="72" rx="6" fill="#E3E7F2"/>'+
-      '<rect x="190" y="78" width="156" height="14" rx="7" fill="#DFE0E6"/>'+
-      '<rect x="190" y="100" width="120" height="10" rx="5" fill="#EAEAEF"/>'+
-      '<rect x="190" y="118" width="140" height="10" rx="5" fill="#EAEAEF"/>'+
-      '<rect x="52" y="74" width="128" height="80" rx="6" fill="none" stroke="#E98A4B" stroke-width="2" stroke-dasharray="6 4"/>'+
-      ['52,74','180,74','52,154','180,154'].map(function(p){var c=p.split(",");return '<rect x="'+(c[0]-4)+'" y="'+(c[1]-4)+'" width="8" height="8" rx="2" fill="#fff" stroke="#E98A4B" stroke-width="2"/>';}).join('')+
-      '<rect x="56" y="166" width="80" height="20" rx="6" fill="#E98A4B" opacity=".18"/>'+
-      '<rect x="146" y="166" width="60" height="20" rx="6" fill="#EFEFF3"/>'),
-    verify: frame(
-      '<rect x="52" y="58" width="150" height="146" rx="8" fill="#FAFAFC" stroke="#E9E9EE"/>'+
-      '<rect x="68" y="78" width="90" height="9" rx="4.5" fill="#DDDEE4"/>'+
-      '<rect x="68" y="98" width="118" height="7" rx="3.5" fill="#EDEDF1"/>'+
-      '<rect x="68" y="114" width="102" height="7" rx="3.5" fill="#EDEDF1"/>'+
-      '<rect x="68" y="130" width="112" height="7" rx="3.5" fill="#EDEDF1"/>'+
-      '<rect x="68" y="160" width="64" height="7" rx="3.5" fill="#D8D9E0"/>'+
-      '<circle cx="252" cy="106" r="30" fill="rgba(233,138,75,.16)"/>'+
-      '<path d="M238 106l10 10 20-22" fill="none" stroke="#B85C1B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>'+
-      '<rect x="222" y="150" width="120" height="12" rx="6" fill="#EDEDF1"/>'+
-      '<rect x="222" y="172" width="86" height="12" rx="6" fill="rgba(233,138,75,.25)"/>'),
-    editor: frame(
-      '<rect x="36" y="58" width="34" height="146" rx="8" fill="#F4F4F7"/>'+
-      [0,1,2,3].map(function(i){return '<rect x="45" y="'+(70+i*30)+'" width="16" height="16" rx="4" fill="'+(i===0?"#E98A4B":"#D9DAE1")+'"/>';}).join('')+
-      '<rect x="82" y="58" width="282" height="146" rx="8" fill="#FBFBFD"/>'+
-      '<circle cx="140" cy="112" r="30" fill="rgba(233,138,75,.3)"/>'+
-      '<rect x="182" y="82" width="70" height="70" rx="10" fill="#DCE3F3"/>'+
-      '<path d="M282 150l26-46 26 46z" fill="#EAD8C9"/>'+
-      '<rect x="112" y="168" width="140" height="10" rx="5" fill="#E3E4EA"/>'+
-      '<rect x="112" y="184" width="90" height="8" rx="4" fill="#EDEDF1"/>'),
-    movies: frame(
-      '<rect x="36" y="58" width="180" height="14" rx="7" fill="#2A3242"/>'+
-      '<rect x="256" y="56" width="108" height="18" rx="9" fill="#2A3242" opacity=".55"/>'+
-      [0,1,2,3,4].map(function(i){var x=36+i*68;return '<rect x="'+x+'" y="88" width="58" height="80" rx="7" fill="#2D3648"/>'+
-        '<rect x="'+(x+8)+'" y="176" width="42" height="7" rx="3.5" fill="#3A455C"/>'+
-        '<rect x="'+(x+8)+'" y="190" width="26" height="7" rx="3.5" fill="#E98A4B"/>';}).join(''), "#171D2B")
-  };
-
   var FEATURED = {
     name:"GameMania UK", sub:"Production gaming marketplace · Live in the UK",
     desc:"A full gaming marketplace for a UK retailer: 300+ product catalogue, cart and checkout, trade-in flow and a rewards system, sitting on top of a role-gated admin panel for products, orders, customers and CMS. Typed Next.js front end, Express and PostgreSQL behind it.",
@@ -688,13 +654,22 @@ footer .brand{font-size:16px}
   var grid = document.getElementById("grid");
   var filters = document.getElementById("filters");
 
-  PROJECTS.forEach(function(p){
+  var ICONS = {
+    builder:'<path d="M3 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M3 9h18"/><path d="M9 21V9"/>',
+    canvas:'<path d="m12 2 9 5-9 5-9-5z"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/>',
+    verify:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>',
+    editor:'<path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.6 7.6"/><circle cx="11" cy="11" r="2"/>',
+    movies:'<rect x="2" y="2" width="20" height="20" rx="2.5"/><path d="M7 2v20M17 2v20M2 12h20M2 7h5M2 17h5M17 17h5M17 7h5"/>'
+  };
+  var GH='<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.39-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg>';
+
+  PROJECTS.forEach(function(p, i){
     var card = el("article","card rv");
     card.setAttribute("data-cats", p.cats.join("|"));
     card.innerHTML =
-      '<div class="thumb">' +
-        '<span class="tagline">'+esc(p.cats[0])+'</span>' +
-        (ART[p.art]||'') +
+      '<div class="card-head">' +
+        '<span class="p-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">'+(ICONS[p.art]||ICONS.builder)+'</svg></span>' +
+        '<span class="p-meta"><span class="p-cat">'+esc(p.cats.join(" · "))+'</span><span class="p-num">'+(i<9?'0':'')+(i+1)+'</span></span>' +
       '</div>' +
       '<div class="card-body">' +
         '<h3 class="card-title">'+esc(p.name)+'</h3>' +
@@ -702,7 +677,7 @@ footer .brand{font-size:16px}
         '<p class="card-desc">'+esc(p.desc)+'</p>' +
         '<div class="tags">'+ p.tags.map(function(t){return '<span class="tag">'+esc(t)+'</span>';}).join("") +'</div>' +
         '<div class="card-foot"><span class="cat">'+esc(p.meta)+'</span>' +
-        '<a href="'+esc(p.url)+'" target="_blank" rel="noopener">View code '+ARROW+'</a></div>' +
+        '<a href="'+esc(p.url)+'" target="_blank" rel="noopener">'+GH+' View code '+ARROW+'</a></div>' +
       '</div>';
     grid.appendChild(card);
   });
