@@ -452,12 +452,31 @@ body{background:
 
 @media (max-width:960px){.photo-wrap{min-height:0;padding-top:10px}.orb.o1{right:0}}
 @media (prefers-reduced-motion:reduce){.sk-tags span{opacity:1;transform:none}.progress{display:none}}
+
+/* =========== cursor motion =========== */
+.c-dot,.c-ring,.c-glow{position:fixed;left:0;top:0;pointer-events:none;z-index:9999;opacity:0;transition:opacity .3s}
+.has-cursor .c-dot,.has-cursor .c-ring,.has-cursor .c-glow{opacity:1}
+.c-dot{width:8px;height:8px;margin:-4px 0 0 -4px;border-radius:50%;background:#22D3EE;box-shadow:0 0 12px #06B6D4,0 0 2px #fff}
+.c-ring{width:38px;height:38px;margin:-19px 0 0 -19px;border-radius:50%;border:1.5px solid rgba(34,211,238,.7);
+  transition:opacity .3s,width .25s,height .25s,margin .25s,background .25s,border-color .25s}
+.c-ring.hover{width:64px;height:64px;margin:-32px 0 0 -32px;background:rgba(37,99,235,.14);border-color:rgba(59,130,246,.9)}
+.c-ring.down{width:26px;height:26px;margin:-13px 0 0 -13px}
+.c-glow{z-index:0;width:560px;height:560px;margin:-280px 0 0 -280px;border-radius:50%;
+  background:radial-gradient(circle,rgba(37,99,235,.16),rgba(6,182,212,.06) 40%,transparent 70%)}
+.has-cursor,.has-cursor a,.has-cursor button{cursor:none}
+.c-burst{position:fixed;pointer-events:none;z-index:9998;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;border:2px solid #22D3EE;animation:burst .6s ease-out forwards}
+@keyframes burst{to{transform:scale(7);opacity:0}}
+.c-spark{position:fixed;pointer-events:none;z-index:9998;width:4px;height:4px;margin:-2px 0 0 -2px;border-radius:50%;background:#06B6D4;box-shadow:0 0 6px #06B6D4;animation:spark .7s ease-out forwards}
+@keyframes spark{to{transform:translate(var(--dx),var(--dy)) scale(.2);opacity:0}}
+main,footer{position:relative;z-index:1}
+.magnet{transition:transform .25s cubic-bezier(.2,.7,.3,1)}
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
 <div class="progress" id="progress" aria-hidden="true"></div>
+<div class="c-glow" aria-hidden="true"></div><div class="c-ring" aria-hidden="true"></div><div class="c-dot" aria-hidden="true"></div>
 <header class="hdr" id="hdr">
   <div class="wrap">
     <a class="brand" href="#top"><span class="tile"><img src="avatar-sm.jpg" alt="Ali Husnain" width="38" height="38"></span>Ali<em>Husnain</em></a>
@@ -1020,6 +1039,50 @@ body{background:
       pw.style.transform="perspective(900px) rotateY("+(x*6)+"deg) rotateX("+(-y*6)+"deg)";
     });
     pw.style.transition="transform .3s ease-out, opacity .6s ease";
+  }
+
+  /* ---------------- cursor motion ---------------- */
+  if(!reduce && window.matchMedia("(pointer:fine)").matches){
+    var dot=document.querySelector(".c-dot"), ring=document.querySelector(".c-ring"), glow=document.querySelector(".c-glow");
+    var mx=innerWidth/2, my=innerHeight/2, rx=mx, ry=my, gx=mx, gy=my, started=false;
+    document.addEventListener("pointermove",function(e){
+      mx=e.clientX; my=e.clientY;
+      if(!started){ started=true; rx=gx=mx; ry=gy=my; document.documentElement.classList.add("has-cursor"); }
+      dot.style.transform="translate("+mx+"px,"+my+"px)";
+    },{passive:true});
+    document.addEventListener("pointerleave",function(){ document.documentElement.classList.remove("has-cursor"); started=false; });
+    (function loop(){
+      rx+=(mx-rx)*.18; ry+=(my-ry)*.18; gx+=(mx-gx)*.07; gy+=(my-gy)*.07;
+      ring.style.transform="translate("+rx+"px,"+ry+"px)";
+      glow.style.transform="translate("+gx+"px,"+gy+"px)";
+      requestAnimationFrame(loop);
+    })();
+    var hov="a,button,.chip,.card,.cw-card,.sk-tags span,.socials a,.stack .it";
+    document.addEventListener("pointerover",function(e){ ring.classList.toggle("hover", !!e.target.closest(hov)); });
+    document.addEventListener("pointerdown",function(e){
+      ring.classList.add("down");
+      var b=document.createElement("span"); b.className="c-burst"; b.style.left=e.clientX+"px"; b.style.top=e.clientY+"px"; document.body.appendChild(b); setTimeout(function(){b.remove();},650);
+      for(var i=0;i<8;i++){ var sp=document.createElement("span"), a=i/8*Math.PI*2, d=26+Math.random()*18;
+        sp.className="c-spark"; sp.style.left=e.clientX+"px"; sp.style.top=e.clientY+"px";
+        sp.style.setProperty("--dx",Math.cos(a)*d+"px"); sp.style.setProperty("--dy",Math.sin(a)*d+"px");
+        document.body.appendChild(sp); (function(n){ setTimeout(function(){n.remove();},750); })(sp); }
+    });
+    document.addEventListener("pointerup",function(){ ring.classList.remove("down"); });
+    // magnetic buttons & socials
+    document.querySelectorAll(".btn,.socials a").forEach(function(el){
+      el.classList.add("magnet");
+      el.addEventListener("pointermove",function(e){ var r=el.getBoundingClientRect();
+        var x=(e.clientX-r.left-r.width/2)*.3, y=(e.clientY-r.top-r.height/2)*.4;
+        el.style.transform="translate("+x+"px,"+y+"px)"; });
+      el.addEventListener("pointerleave",function(){ el.style.transform=""; });
+    });
+    // 3D tilt on project + client cards
+    document.querySelectorAll(".card,.cw-card").forEach(function(c){
+      c.addEventListener("pointermove",function(e){ var r=c.getBoundingClientRect();
+        var x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5;
+        c.style.transform="perspective(900px) rotateX("+(-y*5)+"deg) rotateY("+(x*5)+"deg) translateY(-5px)"; });
+      c.addEventListener("pointerleave",function(){ c.style.transform=""; });
+    });
   }
   document.getElementById("year").textContent = new Date().getFullYear();
 })();
