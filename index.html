@@ -398,29 +398,69 @@ footer .brand{font-size:16px}
 @media (prefers-reduced-motion:reduce){.sk-tags span{opacity:1;transform:none}.progress{display:none}}
 
 /* =========== cursor motion =========== */
-.c-dot,.c-ring,.c-glow{position:fixed;left:0;top:0;pointer-events:none;z-index:9999;opacity:0;transition:opacity .3s}
-.has-cursor .c-dot,.has-cursor .c-ring,.has-cursor .c-glow{opacity:1}
-.c-dot{width:8px;height:8px;margin:-4px 0 0 -4px;border-radius:50%;background:var(--accent-deep);box-shadow:0 0 10px rgba(233,138,75,.8)}
-.c-ring{width:38px;height:38px;margin:-19px 0 0 -19px;border-radius:50%;border:1.5px solid rgba(184,92,27,.6);
-  transition:opacity .3s,width .25s,height .25s,margin .25s,background .25s,border-color .25s}
-.c-ring.hover{width:64px;height:64px;margin:-32px 0 0 -32px;background:rgba(233,138,75,.12);border-color:rgba(184,92,27,.85)}
-.c-ring.down{width:26px;height:26px;margin:-13px 0 0 -13px}
+.c-glow{position:fixed;left:0;top:0;pointer-events:none;z-index:9999;opacity:0;transition:opacity .3s}
+.has-cursor .c-glow{opacity:1}
 .c-glow{z-index:0;width:560px;height:560px;margin:-280px 0 0 -280px;border-radius:50%;
   background:radial-gradient(circle,rgba(233,138,75,.12),rgba(233,138,75,.04) 40%,transparent 70%)}
-.has-cursor,.has-cursor a,.has-cursor button{cursor:none}
-.c-burst{position:fixed;pointer-events:none;z-index:9998;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;border:2px solid var(--accent);animation:burst .6s ease-out forwards}
-@keyframes burst{to{transform:scale(7);opacity:0}}
 .c-spark{position:fixed;pointer-events:none;z-index:9998;width:4px;height:4px;margin:-2px 0 0 -2px;border-radius:50%;background:var(--accent);box-shadow:0 0 6px rgba(233,138,75,.8);animation:spark .7s ease-out forwards}
 @keyframes spark{to{transform:translate(var(--dx),var(--dy)) scale(.2);opacity:0}}
 main,footer{position:relative;z-index:1}
 .magnet{transition:transform .25s cubic-bezier(.2,.7,.3,1)}
+
+/* =========== extra animations =========== */
+/* floating embers in the hero */
+.embers{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.embers i{position:absolute;bottom:-20px;border-radius:50%;background:radial-gradient(circle,#F4B183,rgba(233,138,75,.2));opacity:0;animation:rise linear infinite}
+@keyframes rise{0%{transform:translate(0,0) scale(.6);opacity:0}15%{opacity:.8}100%{transform:translate(var(--sx,20px),-110vh) scale(1.1);opacity:0}}
+.hero-grid{position:relative;z-index:1}
+
+/* section titles: underline draws in */
+.sec-title{position:relative;padding-bottom:14px}
+.sec-title::after{content:"";position:absolute;left:0;bottom:0;width:72px;height:4px;border-radius:4px;background:linear-gradient(90deg,var(--accent-deep),var(--accent),#F4B183);transform:scaleX(0);transform-origin:left;transition:transform .9s cubic-bezier(.2,.7,.3,1) .25s}
+.sec-title.in::after{transform:scaleX(1)}
+.contact .sec-title::after,.contact h2::after{left:50%;margin-left:-36px;transform-origin:center}
+.eyebrow::before{transition:width .7s cubic-bezier(.2,.7,.3,1) .1s}
+.eyebrow.rv:not(.in):not(.dot)::before{width:0}
+
+/* cards reveal with a soft zoom + blur */
+.card.rv,.cw-card.rv,.tl-item.rv,.featured.rv{transform:translateY(28px) scale(.97);filter:blur(6px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1),filter .7s ease}
+.card.rv.in,.cw-card.rv.in,.tl-item.rv.in,.featured.rv.in{transform:none;filter:none}
+.tl-item.rv{transform:translateX(-26px)}
+
+/* timeline line fills as you scroll */
+.timeline::before{background:var(--line)}
+.timeline::after{content:"";position:absolute;left:11px;top:8px;width:2px;border-radius:2px;height:calc((100% - 16px) * var(--tl,0));background:linear-gradient(var(--accent-deep),var(--accent));box-shadow:0 0 10px rgba(233,138,75,.5);transition:height .15s linear}
+.tl-item .badge{transition:background .3s,transform .3s}
+.tl-item.lit .badge{background:var(--accent);transform:scale(1.15)}
+.tl-item.lit .badge i{background:#fff}
+
+/* stats pop */
+.stat{transition:transform .5s cubic-bezier(.3,1.6,.5,1)}
+.stat:hover{transform:translateY(-4px)}
+
+/* button arrow nudge + icon wiggle */
+.btn svg,.card-foot a svg,.cw-foot a svg{transition:transform .25s}
+.btn:hover svg,.card-foot a:hover svg,.cw-foot a:hover svg{transform:translateX(4px)}
+.p-icon svg{transition:transform .4s}
+.card:hover .p-icon svg{animation:wiggle .6s ease}
+@keyframes wiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(-12deg)}50%{transform:rotate(10deg)}75%{transform:rotate(-5deg)}}
+
+/* waving hand-style bounce on "Hi, I'm" dot */
+.eyebrow.dot::before{animation:beat 1.8s ease-in-out infinite}
+@keyframes beat{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(233,138,75,.5)}50%{transform:scale(1.25);box-shadow:0 0 0 6px rgba(233,138,75,0)}}
+
+/* contact heading shimmer */
+.contact h2{background:linear-gradient(100deg,var(--ink) 40%,var(--accent) 50%,var(--ink) 60%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 5s ease-in-out infinite}
+@keyframes shine{0%{background-position:100% 0}60%,100%{background-position:-50% 0}}
+
+@media (prefers-reduced-motion:reduce){.embers{display:none}.card.rv,.cw-card.rv,.tl-item.rv,.featured.rv{filter:none;transform:none}.sec-title::after{transform:none}.contact h2{animation:none;color:var(--ink);background:none}}
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
 <div class="progress" id="progress" aria-hidden="true"></div>
-<div class="c-glow" aria-hidden="true"></div><div class="c-ring" aria-hidden="true"></div><div class="c-dot" aria-hidden="true"></div>
+<div class="c-glow" aria-hidden="true"></div>
 <header class="hdr" id="hdr">
   <div class="wrap">
     <a class="brand" href="#top"><span class="tile"><img src="avatar-sm.jpg" alt="Ali Husnain" width="38" height="38"></span>Ali<em>Husnain</em></a>
@@ -443,7 +483,7 @@ main,footer{position:relative;z-index:1}
     <div class="hero-copy">
       <p class="eyebrow dot rv">Hi, I'm</p>
       <h1 class="rv">Ali <em>Husnain</em></h1>
-      <p class="role rv"><span class="sr-only">Full-Stack Developer, React &amp; Next.js Engineer</span><span class="typed" aria-hidden="true">Full-Stack Developer</span><span class="caret" aria-hidden="true"></span></p>
+      <p class="role rv"><span class="sr-only">Full-Stack Software Engineer, React &amp; Next.js Engineer</span><span class="typed" aria-hidden="true">Full-Stack Software Engineer</span><span class="caret" aria-hidden="true"></span></p>
       <p class="lede rv">Full-Stack Software Engineer with 3+ years of experience building scalable web and mobile applications across the complete SDLC. Experienced in frontend, backend, databases, APIs, and deployment.</p>
       <div class="key rv">
         <h2 class="key-title">Key Skills &amp; Experience</h2>
@@ -484,7 +524,7 @@ main,footer{position:relative;z-index:1}
       <div class="pop">
         <div class="pop-ring" aria-hidden="true"></div>
         <div class="pop-disc" aria-hidden="true"></div>
-        <img id="avatar" class="pop-img" src="ali.webp" alt="Ali Husnain, full-stack developer" width="700" height="700" loading="eager" fetchpriority="high">
+        <img id="avatar" class="pop-img" src="ali-hd.webp" alt="Ali Husnain, full-stack software engineer" width="1400" height="1400" decoding="async" loading="eager" fetchpriority="high">
         <div class="photo-fallback" id="avatarFallback">AH</div>
       </div>
       <div class="float-card">
@@ -940,7 +980,7 @@ main,footer{position:relative;z-index:1}
 
   // typing roles
   var typed = document.querySelector(".typed");
-  var roles = ["Full-Stack Developer","React & Next.js Engineer","MERN Stack Developer","React Native Developer","Figma to Code Specialist"];
+  var roles = ["Full-Stack Software Engineer","Full-Stack Developer","React & Next.js Engineer","MERN Stack Developer","Figma to Code Specialist"];
   if(typed && !reduce){
     var ri=0, ci=roles[0].length, del=true;
     (function tick(){
@@ -987,31 +1027,25 @@ main,footer{position:relative;z-index:1}
 
   /* ---------------- cursor motion ---------------- */
   if(!reduce && window.matchMedia("(pointer:fine)").matches){
-    var dot=document.querySelector(".c-dot"), ring=document.querySelector(".c-ring"), glow=document.querySelector(".c-glow");
+    var glow=document.querySelector(".c-glow");
     var mx=innerWidth/2, my=innerHeight/2, rx=mx, ry=my, gx=mx, gy=my, started=false;
     document.addEventListener("pointermove",function(e){
       mx=e.clientX; my=e.clientY;
       if(!started){ started=true; rx=gx=mx; ry=gy=my; document.documentElement.classList.add("has-cursor"); }
-      dot.style.transform="translate("+mx+"px,"+my+"px)";
     },{passive:true});
     document.addEventListener("pointerleave",function(){ document.documentElement.classList.remove("has-cursor"); started=false; });
     (function loop(){
       rx+=(mx-rx)*.18; ry+=(my-ry)*.18; gx+=(mx-gx)*.07; gy+=(my-gy)*.07;
-      ring.style.transform="translate("+rx+"px,"+ry+"px)";
       glow.style.transform="translate("+gx+"px,"+gy+"px)";
       requestAnimationFrame(loop);
     })();
     var hov="a,button,.chip,.card,.cw-card,.sk-tags span,.socials a,.stack .it";
-    document.addEventListener("pointerover",function(e){ ring.classList.toggle("hover", !!e.target.closest(hov)); });
     document.addEventListener("pointerdown",function(e){
-      ring.classList.add("down");
-      var b=document.createElement("span"); b.className="c-burst"; b.style.left=e.clientX+"px"; b.style.top=e.clientY+"px"; document.body.appendChild(b); setTimeout(function(){b.remove();},650);
       for(var i=0;i<8;i++){ var sp=document.createElement("span"), a=i/8*Math.PI*2, d=26+Math.random()*18;
         sp.className="c-spark"; sp.style.left=e.clientX+"px"; sp.style.top=e.clientY+"px";
         sp.style.setProperty("--dx",Math.cos(a)*d+"px"); sp.style.setProperty("--dy",Math.sin(a)*d+"px");
         document.body.appendChild(sp); (function(n){ setTimeout(function(){n.remove();},750); })(sp); }
     });
-    document.addEventListener("pointerup",function(){ ring.classList.remove("down"); });
     // magnetic buttons & socials
     document.querySelectorAll(".btn,.socials a").forEach(function(el){
       el.classList.add("magnet");
@@ -1030,6 +1064,32 @@ main,footer{position:relative;z-index:1}
   }
   document.getElementById("year").textContent = new Date().getFullYear();
 })();
+
+  /* ---------------- extra animations ---------------- */
+  (function(){
+    var reduceM = window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+    var hero=document.querySelector(".hero");
+    if(hero && !reduceM){
+      var em=document.createElement("div"); em.className="embers"; em.setAttribute("aria-hidden","true");
+      for(var i=0;i<18;i++){ var p=document.createElement("i"), sz=4+Math.random()*9;
+        p.style.width=p.style.height=sz+"px"; p.style.left=(Math.random()*100)+"%";
+        p.style.animationDuration=(9+Math.random()*10)+"s"; p.style.animationDelay=(-Math.random()*15)+"s";
+        p.style.setProperty("--sx",(Math.random()*80-40)+"px"); em.appendChild(p); }
+      hero.insertBefore(em, hero.firstChild);
+    }
+    var tl=document.getElementById("timeline");
+    if(tl){
+      var tick=function(){
+        var r=tl.getBoundingClientRect(), vh=window.innerHeight;
+        var p=Math.max(0,Math.min(1,(vh*0.6-r.top)/r.height));
+        tl.style.setProperty("--tl",p.toFixed(3));
+        tl.querySelectorAll(".tl-item").forEach(function(it){
+          var b=it.getBoundingClientRect(); it.classList.toggle("lit", b.top+30 < vh*0.6);
+        });
+      };
+      window.addEventListener("scroll",tick,{passive:true}); window.addEventListener("resize",tick); setTimeout(tick,300);
+    }
+  })();
 </script>
 </body>
 </html>
